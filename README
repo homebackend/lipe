@@ -1,0 +1,87 @@
+Welcome to lipe.
+
+lipe is free software. Please see the file COPYING for details.
+For documentation, please see the files in the doc subdirectory.
+For building and installation instructions please see the INSTALL file.
+
+
+LiPE is a partition table editor for Linux. It is different from other of
+its kind in the sense that you can manipulate the partition table in 
+(almost) any way you deem fit. Thus it gives the power while you are still
+not required to go into the hexadecimal jungle. Ans its most important
+utility is probably data recovery in case of partition table error.
+
+Note as this program handles HD in a raw mode, you need root privilages 
+for doing all this.
+
+Now something about the program:
+Right now it supports two modes:
+(i) Plain text mode
+	You can dump (display on screen) or pump (write to device) partition
+	table using stdout and stdin in this mode. And I need not mention
+	the possibility of redirection.
+
+	Further both dump and pump support two modes ``raw'' and ``readable.''
+	Don't get me wrong both are readable, but in raw mode you get plain 
+	hex text but in readable mode you get numbers.
+
+	So the commands are
+
+	lipe --dump=raw --device=/dev/hda
+	lipe --dump=readable --device=/dev/hdc
+	lipe --pump=raw --device=/dev/hda
+	lipe --pump=readable --device=/dev/hdb -b 1024
+	Last one uses a sector-size of 1024 instead 512. Just-in-case you are
+	on of them (you got me:)
+
+	BTW, in pump mode you can write at stdout the partition table and it
+	will be written to your HD. But a less painful way will be redirection.
+	(remember the < > >> << things :)
+
+(ii) Ncurses Mode (Ok we are talking about graphics here)
+	This mode supports text-mode graphics. And in this mode LiPE mimics 
+	the functionality of PowerQuests(r) PTEDIT program (An utility included
+	with Partition Magic). Now lets do some tricks here.
+
+	lipe --device=/dev/hdb --text
+
+	Ya we have got our command line options totally messed up, but hey there
+	is always a new version to wait for ;)
+
+	So what do we have now graphical-text (yack!)
+
+	Okay the commands in graphical mode are as follows:
+
+	Left Arrow Key or `h': Move Left (Easy enough)
+	Down Arrow Key or `j': Move Down
+	Up Arrow Key or `k': Move Up
+	Right Arrow Key or `l': Move Right
+	ctrl-f or `n': Next Partition Table
+	ctrl-b or `p': Previous Partiton Table
+	F1 or `?': Help (Sorry nothing will come)
+	F2 or `w': Write data (Be careful!!!)
+	F3 or `!': Reset data
+	F4 or `r' or Enter: Edit a value
+	Esc or `q' or ctrl-x: Exit the program 
+
+	You will be asked to save the data whenever the LiPE feels the need. You 
+	can choose by y or n to save or not to save the data.
+
+Well this program is meant for advanced users. So don't expect us to write a How-to
+about disk partitioning and stuff.
+
+You should also read the man page of LiPE.
+
+
+TODO:
+	We are working right now on a graphical interface using svgalib. So hang on.
+	Also many options and configurations will be supported in future versions.
+
+
+Authors and website:
+http://home.iitk.ac.in/student/neerajcd/LiPE
+http://sourceforge.net/projects/ptedit/
+
+Neeraj Jakhar (Me :) neerajcd@iitk.ac.in
+
+And yes do send feedback :).

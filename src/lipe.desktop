@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=/usr/sbin/lipe
+Icon=/usr/share/pixmaps/lipe.xpm
+Type=Application
+Name=LiPE
+GenericName=LiPE is Partition-Table Editor
+X-KDE-SubstituteUID=true
+Categories=System;

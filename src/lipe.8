@@ -1,0 +1,231 @@
+.\"
+.\" 
+.\" Copyright (C) 2004 Neeraj Jakhar <neerajcd@iitk.ac.in>
+.\"
+.\" 
+.\" This program is free software; you can redistribute it and/or 
+.\" modify it under the terms of the GNU General Public License 
+.\" as published by the Free Software Foundation; either 
+.\" version 2 of the License, or (at your option) any later 
+.\" version.
+.\" 
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" 
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+.\" 
+.\"
+.\"
+.TH GNU/LiPE 8 "01 March 2005" "" "GNU/LiPE is Partition Table Editor"
+.SH NAME
+lipe \- GNU/LiPE is Partiton-table Editor
+.SH SYNOPSIS
+.BI "lipe [--graphics|--text] [--bytes-in-sector " sector-size " ] [--device " device-file ]
+.sp
+.BI "lipe --dump " raw|readable " [--bytes-in-sector " sector-size "] [--starting-sector " starting-sector "] [--no-follow] [--assume-extended] --device " device-file
+.sp
+.BI "lipe --pump " raw|readable " [--bytes-in-sector " sector-size "] --device " device-file
+.sp
+.BI "lipe --version"
+.sp
+.BI "lipe --help"
+.SH DESCRIPTION
+.B GNU/LiPE
+is a program used to create/manipulate 
+.I partition tables. 
+While there existed many partition table editors for GNU/Linux, viz.
+.BR fdisk (8),
+.BR cfdisk (8),
+.BR sfdisk (8),
+.BR parted (8)
+the author(s) found them to be too restrictive. This proved to be a real bottle-neck in case of disk disasters such as corruption of partition tables. And thus the idea to create GNU/LiPE was born.
+.sp
+GNU/LiPE is a functional equivalent of PowerQuest's (r) ptedit program for Windows (r). However, the overall effectiveness of GNU/LiPE is much more than the original program. GNU/LiPE runs in three modes:
+.nf
+.RS
+Command-line mode
+Menu-driven text mode (ncurses)
+Menu-driven graphics mode (gtk based)
+.RE
+.fi
+.sp
+.B Command-line mode:
+It supports partition table reading (dump) and partition table writing (pump) through
+.I standard input
+and
+.I standard output
+respectively. You can 
+.I redirect 
+to (and/or from) input (output) to a disk file. Now you can edit the file using any text editor and write the edited file to the partition table using input redirection.
+.sp
+.B Menu-driven text mode:
+This is the default mode of GNU/LiPE when gtk based mode is not enabled at compile time. In this mode you are provided with a screen showing your partition table. You are shown one partition table at a time. You can move back-and-forth between these partition tables.
+.I Remember:
+Partition tables are implemented in a linked-list sort of structure. So the partition entries shown by fdisk program may actually be in separate partition tables. You can open a partition table at a particular sector by pressing appropriate key. The online-help in this mode can be accessed by pressing F1 or `?'. There you can see all the key bindings.
+.nf
+.RS
+
+.B "Keys                       Corresponding Action"
+
+<Esc> or <ctrl>-x or q     Exit from program
+<Left> or h                Move (scroll) Left
+<Down> or j                Move Down
+<Up> or k                  Move Up
+<Right> or l               Move (scroll) Right
+<F4> or <Return> or a      Edit the highlighted value
+<F3> or !                  Reset whole of the partition-table
+<F2> or <ctrl>-s or w      Save partition-table data to device
+<ctrl>-f or n              Move to Next partition-table
+<ctrl>-b or p              Move to Previous partition-table
+<tab> or e                 Open a new device-file
+r                          Read partition-table from
+<F1> or ?                  Show Help screen
+t                          List some well known partition types
+.RE
+.fi
+.sp
+.B Menu-driven graphics mode:
+Supports gtk based graphical mode. Graphics mode currently takes no options.
+.sp
+.B Warning:
+GNU/LiPE performs a
+.I bare minimum
+set of tests on the data entered by the user. This is not a bug. It was designed to do so. So based on the ``saneness'' of the user it can be either useful or harmful. You were warned :)
+.SH OPTIONS
+.TP
+.BI "--assume-extended"
+When used in conjunction with  --dump and  --starting-sector command line options (ignored otherwise), specifies that the partition table read from 
+.I starting-sector 
+( see help for command-line option 
+.B --starting-sector
+) is from an EPBR and not from MBR. Even after using this option it is not guaranteed that there will be no false output. (This is due to the way data is stored.)
+.TP
+.BI "-b " sector-size
+.TP
+.BI "--bytes-in-sectore " sector-size
+Specifies the sector size of the disk. Valid values are 512, 1024 and 2048. Useful only in case of very old kernels.
+.TP
+.BI "-d " device-file
+.TP
+.BI "--device " device-file
+Opens 
+.I device-file 
+for either input or output. Some examples of device-file are /dev/hda, /dev/hdd, /dev/sdc, /dev/sdb. 
+.B Note
+that both the menu-driven modes do not require device-file to be specified on the command-line. However, the command-line mode requires you to specify a device-file.
+.TP
+.BI "--dump raw|readable"
+Dumps (displays) all partition table information of a particular 
+.I device-file 
+( see help for
+.B --device
+) to standard output. This information can itself be of two types 
+.I raw 
+or 
+.I readable.
+Raw corresponds to case when all the data is dumped as hexadecimal characters. While in readable mode most of the values are shown as decimal numbers.
+.B Note:
+If --no-follow command-line option is not specified, all the partition-tables are read recursively and dumped to screen. You can also specify an exact starting-sector by using --starting-sector command-line option.
+.TP
+.BI "-g"
+.TP
+.BI "--graphics"
+Specifies that menu-driven graphics mode (requires svgalib) be started. This mode is not yet supported.
+.TP
+.BI "-h"
+.TP
+.BI "--help"
+Displays GNU/LiPE help information. Useful for quick reference.
+.TP
+.BI "--no-follow"
+Specifies that you do not want to dump all the partition-tables recursively, during the dumping (ignored otherwise) of the partition-tables. Instead you want dumping to stop after dumping of the first partition-table.
+.TP
+.BI "--pump raw|readable"
+Pumps (writes) all partition table information given through standard input to a 
+.I device-file 
+( see help for 
+.B --device
+). The partition table information is generally modified output of --dump command-line option described above. Now, this information can itself be of two types 
+.I raw 
+or 
+.I readable. 
+Raw corresponds to case when all the data is read as hexadecimal characters. While in readable mode most of the values are read as decimal numbers. See the corresponding output from --dump command-line option to see how partition information is to be given through the 
+.I standard input 
+in both cases.
+.B Note:
+While pumping the values are written to the sector given on the line starting with a `;'. All other values are niether checked nor used. The 
+.I starting-sector 
+( see help for 
+.B --starting-sector
+) has no effect in case of --pump. Similarly --no-follow command-line option is ignored and all the partition-tables present in the standard-input are written to the 
+.I device-file 
+( see help for 
+.B --device
+). The device-file can be any file and thus before performing an actual write testing can be done.
+.TP
+.BI "--starting-sector " starting-sector
+Specifies the sector from which first partition-table is to be read. Subsequent behavior depends upon the use of other command-line options.
+.TP
+.BI "-t"
+.TP
+.BI "--text"
+Specifies that menu-driven text mode (requires ncurses library) be started. This option is actually not required because as of writing this is the default mode of the program. More information about this mode can be found from the online-help itself.
+.TP
+.BI "-v"
+.TP
+.BI "-V"
+.TP
+.BI "--version"
+Displays GNU/LiPE version information.
+.SH EXAMPLES
+To start menu-driven text mode give the command
+.IP
+\fclipe\fp
+.LP
+You will be asked for a device-file at a later stage.
+.sp
+To start menu-driven graphics mode give the command
+.IP
+\fclipe -g\fp
+.LP
+To dump all the partition information of a device-file into a file named dumped.pt in raw format give the command
+.IP
+\fclipe --dump raw --device=/dev/hdb > dumped.pt\fp
+.LP
+To pump all the partition information from a file named dumped.pt to a device-file in readable format give the command
+.IP
+\fclipe --pump=readable --device=/dev/hdd < dumped.pt\fp
+.LP
+And finally guess what this command does
+.IP
+\fclipe --dump=raw --device /dev/hda | lipe -d /dev/hdb --pump raw\fp
+.SH BUGS
+None that I know about. However if you come across any, you may inform me via an e-mail. (Address given below)
+.SH SEE ALSO
+.BR fdisk (8),
+.BR cfdisk (8),
+.BR sfdisk (8),
+.BR parted (8),
+.BR mkfs (8)
+.SH AUTHOR(S)
+Copyright (C) 2004-2005 
+.B Neeraj Jakhar 
+<neerajcd@iitk.ac.in>
+.sp
+Basic program engine and ncurses part was coded by Neeraj Jakhar.
+.sp
+.nf
+And just to complete the story:
+.fi
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+.sp
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+.SH CONTRIBUTORS
+Vasant Tiwari <vasant@iitk.ac.in>
+.SH AUTHOR(S) OF THIS MANPAGE
+Neeraj Jakhar <neerajcd@iitk.ac.in>
+

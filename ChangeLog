@@ -1,0 +1,60 @@
+Version 1.12: Thu Dec 25 01:37:15 IST 2008
+	* Support for amd64 bit systems was added.
+	* Now we use hdparam command to find disk parameters such as Disk ID and CHS values.
+	* Removed certain gtk inconsistencies due to use of '<' and '>' in strings.
+	* Now we use lseek64() instead of _llseek() for large file access.
+
+Version 1.11:
+	* A few segmentation faults were removed.
+	* Most notably annonying one non root user disk access.
+	* Command line interface help updated.
+	* Man page updated.
+	* Jump to sector added.
+	* Boot Record button removed as it won't be supported.
+	* Cancle button was added on Save command.
+	* SCSI disk autocheck in gtk interface.
+	* Changelog file was updated both for version 1.10 and 1.11.
+
+Version 1.10:
+	* Added gtk based interface to the program.
+	* Package now uses GNU autoconf.
+
+Version 1.05:
+	* Improved code command-line options dump and pump.
+	* Tokens for better code: token.h & token.h
+	* Added command line options --no-follow, --assume-extended and
+	  --starting-sector.
+	* Added automatic device detection (sort of anyway) for
+	  /dev/hd[a-d] (device_media_type() function).
+	* rwmode was replaced with what so that functions have fewer
+	  arguments.
+	* Much more improved error handling - using enum to do the job.
+	* make template FNAME=fname option was added in Makefile.
+	* Man page was improved and made uptodate.
+	* A few bugs were removed.
+	* Some redundant code was removed.
+	* Some new bugs were introduced ;).
+	* Changelog file was edited (by far most difficult job. ;)
+
+Version 1.04a:
+	* Fixed a segmentation fault problem.
+
+Version 1.04:
+	* Fixed some bugs related to ncurses and X environment.
+	* SIGINT support added.
+	* Makefile format improved, supports more configuration with less
+	  pain.
+	* Changelog was edited to record the above change as well as this
+	 one :)
+
+Version 1.03:
+	* Added #include <errno.h> in common.h.
+
+Version 1.02:
+	* Added window display system.
+	* Improved online help display.
+	* Better Error handling.
+
+Version 1.01:
+	* Added ncurses interface.
+

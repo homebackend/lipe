@@ -1,0 +1,26 @@
+# Partition Table Number 0's Raw Data for device /dev/hdc at sector 0
+;0
+00 01 01 00 4F FE 3F F3 3F 00 00 00 B5 CF 3B 00 
+80 04 01 F4 83 E6 7F E7 F0 D0 3B 00 10 C9 3B 00 
+00 00 41 E8 A6 FE BF DB E8 9F 77 00 F4 CF 3B 00 
+00 00 81 DC 05 FE FF FF DC 6F B3 00 5E F1 AE 01 
+# Sign Bytes			55 AA 
+
+# Partition Table Number 1's Raw Data for device /dev/hdc at sector 11759580
+#;11759580
+;1
+00 01 81 DC 83 FE FF 1A 3F 00 00 00 40 71 0F 00 
+00 00 FF 1B 05 FE FF FF BD 71 0F 00 A1 7F 9F 01 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+# Sign Bytes			55 AA 
+
+# Partition Table Number 2's Raw Data for device /dev/hdc at sector 12771737
+#;12771737
+;2
+00 01 C1 1B 83 FE FF FF 01 00 00 00 A0 7F 9F 01 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+# Sign Bytes			55 AA 
+

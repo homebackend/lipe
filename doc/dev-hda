@@ -1,0 +1,71 @@
+# Partition Table Number 0's Raw Data for device /dev/hda at sector 0
+;0
+00 01 01 00 0C FE BF D9 3F 00 00 00 1B F2 B2 00 
+80 00 81 DA 82 FE FF FF 5A F2 B2 00 EE B7 59 00 
+00 FE FF FF 83 FE FF FF 48 AA 0C 01 EE B7 59 00 
+00 FE FF FF 05 FE FF FF 36 62 66 01 8B 82 EA 07 
+# Sign Bytes			55 AA 
+
+# Partition Table Number 1's Raw Data for device /dev/hda at sector 23487030
+#;23487030
+;1
+00 FE FF FF 83 FE FF FF 3F 00 00 00 0F C2 EE 00 
+00 FE FF FF 05 FE FF FF 4E C2 EE 00 7F 71 0F 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+# Sign Bytes			55 AA 
+
+# Partition Table Number 2's Raw Data for device /dev/hda at sector 39134340
+#;39134340
+;2
+00 FE FF FF 82 FE FF FF 3F 00 00 00 40 71 0F 00 
+00 FE FF FF 05 FE FF FF CD 33 FE 00 F4 CF 3B 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+# Sign Bytes			55 AA 
+
+# Partition Table Number 3's Raw Data for device /dev/hda at sector 40146435
+#;40146435
+;3
+00 FE FF FF EB FE FF FF 3F 00 00 00 B5 CF 3B 00 
+00 FE FF FF 05 FE FF FF C1 03 3A 01 EE B7 59 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+# Sign Bytes			55 AA 
+
+# Partition Table Number 4's Raw Data for device /dev/hda at sector 44066295
+#;44066295
+;4
+00 FE FF FF 83 FE FF FF 3F 00 00 00 AF B7 59 00 
+00 FE FF FF 05 FE FF FF AF BB 93 01 EE B7 59 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+# Sign Bytes			55 AA 
+
+# Partition Table Number 5's Raw Data for device /dev/hda at sector 49946085
+#;49946085
+;5
+00 FE FF FF 83 FE FF FF 3F 00 00 00 AF B7 59 00 
+00 FE FF FF 05 FE FF FF 9D 73 ED 01 54 DA D0 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+# Sign Bytes			55 AA 
+
+# Partition Table Number 6's Raw Data for device /dev/hda at sector 55825875
+#;55825875
+;6
+00 FE FF FF 83 FE FF FF 3F 00 00 00 15 DA D0 00 
+00 FE FF FF 05 FE FF FF F1 4D BE 02 9A 34 2C 05 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+# Sign Bytes			55 AA 
+
+# Partition Table Number 7's Raw Data for device /dev/hda at sector 69513255
+#;69513255
+;7
+00 FE FF FF 83 FE FF FF 3F 00 00 00 5B 34 2C 05 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+# Sign Bytes			55 AA 
+
